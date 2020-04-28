@@ -11,6 +11,10 @@
     {
       "name": "Facebook",
       "url": "https://www.facebook.com"
+    },
+    {
+      "name": "Docs",
+      "url": "http://docs.google.com"
     }
   ]
 }
