@@ -11,7 +11,11 @@ async function load() {
 load();
 
 async function addToList({ name, url }) {
-    const res = await fetch(`http://localhost:3000?name=${name}&url=${url}`).then((data) => data.json());
+    const req = await fetch(`http://localhost:3000?name=${name}&url=${url}`).then((data) => data.json());
+}
+
+async function removeFromList(name, url, index) {
+    const req = await fetch(`http://localhost:3000?name=${name}&url=${url}&del=${index}`).then((data) => data.json());
 }
 
 function addElement({ name, url }) {
@@ -33,13 +37,12 @@ function addElement({ name, url }) {
 
 async function removeElement(el) {
     if (confirm('Tem certeza que deseja deletar?')) {
-        //const name = el.parentNode.innerHTML;
-        //console.log(`innerHTML: ${name}`);
-        
+        const { text, origin } = el.parentNode.firstChild;
+        const index = 1;
+
+        removeFromList(text, origin, index);
         el.parentNode.remove();
-        
-        //const res = await fetch(`http://localhost:3000?name=${name}&url=${url}&del=1`).then((data) => data.json());
-    } 
+    }
 }
 
 form.addEventListener("submit", (event) => {

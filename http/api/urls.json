@@ -2,19 +2,11 @@
   "urls": [
     {
       "name": "Youtube",
-      "url": "https://www.youtube.com/"
+      "url": "http://youtube.com"
     },
     {
       "name": "Google",
-      "url": "https://www.google.com"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com"
-    },
-    {
-      "name": "Docs",
-      "url": "http://docs.google.com"
+      "url": "http://google.com"
     }
   ]
 }
