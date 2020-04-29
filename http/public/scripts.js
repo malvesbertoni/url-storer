@@ -36,7 +36,7 @@ function addElement({ name, url }) {
 }
 
 async function removeElement(el) {
-    if (confirm('Tem certeza que deseja deletar?')) {
+    if (confirm('Are you sure you want to delete it?')) {
         const { text, origin } = el.parentNode.firstChild;
         const index = 1;
 
@@ -51,15 +51,15 @@ form.addEventListener("submit", (event) => {
     let { value } = input;
 
     if (!value) 
-        return alert('Preencha o campo');
+        return alert('Fill the text area');
 
     const [name, url] = value.split(", ");
 
     if (!url) 
-        return alert('formate o texto da maneira correta');
+        return alert('Incorrect format');
 
     if (!/^http/.test(url)) 
-        return alert("Digite a url da maneira correta");
+        return alert("Please, type the url correctly");
     
     addToList({ name, url });
     addElement({ name, url });
