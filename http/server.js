@@ -1,7 +1,9 @@
+// Loading requirements
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+// Creating the server and establishing connection on port 5000
 http.createServer((req,res) => {
     const file = req.url === '/' ? 'index.html' : req.url;
     const filePath = path.join(__dirname, 'public', file);

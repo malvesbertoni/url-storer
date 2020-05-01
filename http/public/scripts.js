@@ -2,6 +2,8 @@ const ul = document.querySelector("ul");
 const input = document.querySelector("input");
 const form = document.querySelector('form');
 
+// Loads the information currently stored in the "database" 
+// through the API and adds it to the front-page
 async function load() {
     const res = await fetch("http://localhost:3000").then((data) => data.json());
 
@@ -10,14 +12,17 @@ async function load() {
 
 load();
 
+// Adds the item to the "database" through the API
 async function addToList({ name, url }) {
     const req = await fetch(`http://localhost:3000?name=${name}&url=${url}`).then((data) => data.json());
 }
 
+// Removes the selected item from the "database" through the API
 async function removeFromList(name, url, index) {
     const req = await fetch(`http://localhost:3000?name=${name}&url=${url}&del=${index}`).then((data) => data.json());
 }
 
+// Adds data, from the "database", into the front-page
 function addElement({ name, url }) {
     const li = document.createElement('li');
     const a = document.createElement("a");
@@ -27,6 +32,7 @@ function addElement({ name, url }) {
     a.innerHTML = name;
     a.target = "_blank";
 
+    // Creates the "delete button", used to delete information
     trash.innerHTML = "x";
     trash.onclick = () => removeElement(trash);
 
@@ -35,6 +41,8 @@ function addElement({ name, url }) {
     ul.append(li);
 }
 
+// Extracts the 'name' and 'url' from the to-be-deleted item 
+// and sends this information to the removeFromList() function
 async function removeElement(el) {
     if (confirm('Are you sure you want to delete it?')) {
         const { text, origin } = el.parentNode.firstChild;
@@ -45,6 +53,9 @@ async function removeElement(el) {
     }
 }
 
+// Monitors the input, to check for user's errors
+// If the input is correct, the information is added 
+// to the "database" and also the front-page
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -56,7 +67,7 @@ form.addEventListener("submit", (event) => {
     const [name, url] = value.split(", ");
 
     if (!url) 
-        return alert('Incorrect format');
+        return alert('Missing information or incorrect format');
 
     if (!/^http/.test(url)) 
         return alert("Please, type the url correctly");
