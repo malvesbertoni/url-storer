@@ -15,8 +15,8 @@ This process should not employ any third-party packages in its implementation.
 * Node.js
 
 ## Demo
-Inserting a new URL
+#### Inserting a new URL
 ![Inserting Url](https://github.com/malvesbertoni/url-storer/blob/master/addUrl.gif)
 
-Removing a URL
+#### Removing a URL
 ![Removing Url](https://github.com/malvesbertoni/url-storer/blob/master/deleteUrl.gif)
