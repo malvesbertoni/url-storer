@@ -6,7 +6,7 @@ Its goal was to create a simple frontend, that serves as a client, and a backend
 
 The communication between them is established through an API, also created from scratch.
 
-This process should not employ any third-party packages in its implementation.
+This masterclass proposed the challenge of not employing any third-party packages into the implementation of the communication process.
 
 ## Technologies
 * HTML5
